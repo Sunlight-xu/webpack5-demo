@@ -1,0 +1,24 @@
+{
+  "name": "gtc-map",
+  "version": "0.0.1",
+  "description": "2dmap，使用博能地图sdk",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "NODE_ENV=development webpack serve --progress",
+    "build": "NODE_ENV=production webpack --config webpack.config.js --progress --color"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@code.aibee.cn:cxqi/gtc-bmap.git"
+  },
+  "author": "qcx",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^4.5.1",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.1",
+    "webpack-dev-server": "^3.11.1"
+  }
+}
