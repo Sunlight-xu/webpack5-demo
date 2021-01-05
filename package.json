@@ -1,7 +1,7 @@
 {
-  "name": "gtc-map",
+  "name": "myapp",
   "version": "0.0.1",
-  "description": "2dmap，使用博能地图sdk",
+  "description": "webpack",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
