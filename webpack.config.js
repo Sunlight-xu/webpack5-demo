@@ -39,7 +39,6 @@ module.exports = {
     contentBase: './', // 资源访问路径
     port: 8081,
     hot: true,
-    hotOnly: true,
     open: true,
   },
   devtool,
