@@ -3,15 +3,23 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
+const PreloadWebpackPlugin = require('preload-webpack-plugin');
+// const Webpack = require('webpack');
 let plugins = [
+  // 打包copy
   new CopyPlugin({
     patterns: [
       { from: "public", to: path.join(__dirname, 'dist') },
+      { from: "static", to: path.join(__dirname, 'dist/static') },
     ],
   }),
   new HtmlWebpackPlugin({
     title: 'app',
     template: './public/index.html',
+  }),
+  new PreloadWebpackPlugin({
+    rel: 'preload',
+    as: 'script'
   }),
   new MiniCssExtractPlugin({
     filename: '[name].[hash:8].css',
@@ -28,8 +36,10 @@ if (process.env.NODE_ENV === 'production') {
 module.exports = {
   entry,
   devServer: {
+    contentBase: './', // 资源访问路径
     port: 8081,
-    hotOnly: false,
+    hot: true,
+    hotOnly: true,
     open: true,
   },
   devtool,
@@ -44,7 +54,7 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
-        test: /\.(png|jpe?g|gif｜zip)$/i,
+        test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
             loader: 'file-loader',
